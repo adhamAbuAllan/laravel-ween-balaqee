@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\NewAccessToken;
 
 
 class UserController extends Controller
@@ -93,7 +94,24 @@ class UserController extends Controller
         $user = User::find($user->id);
 //        $user['token'] = Str::random(60);
 
-        $user['token'] = $user->createToken($user['token'])->plainTextToken;
+//        $user['token'] = $user->createToken($user['token'])->plainTextToken;
+
+
+        $plainTextToken = sprintf(
+            '%s%s%s',
+            config('sanctum.token_prefix', ''),
+            $tokenEntropy = Str::random(40),
+            hash('crc32b', $tokenEntropy)
+        );
+
+        $token = User::create([
+
+            'token' => hash('sha256', $plainTextToken),
+
+        ]);
+
+        $user['token'] = new NewAccessToken($token, $token->getKey().'|'.$plainTextToken);
+
         return $this->success(new UserResource($user));
     }
 
@@ -116,9 +134,21 @@ class UserController extends Controller
         ]);
         if ($done) {
             $user = auth()->user();
+            $plainTextToken = sprintf(
+                '%s%s%s',
+                config('sanctum.token_prefix', ''),
+                $tokenEntropy = Str::random(40),
+                hash('crc32b', $tokenEntropy)
+            );
+            $token = User::create([
+
+                'token' => hash('sha256', $plainTextToken),
+
+            ]);
+
 //            $user['profile'] = url($user->profile);
 //                $user['token'] = $user->createToken()->plainTextToken;
-            $user['token'] = $user->createToken($user['token'])->plainTextToken;
+            $user['token'] = new NewAccessToken($token, $token->getKey().'|'.$plainTextToken);
             //
 
 
