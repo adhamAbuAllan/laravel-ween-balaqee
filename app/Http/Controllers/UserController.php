@@ -119,7 +119,7 @@ class UserController extends Controller
 //            $user['profile'] = url($user->profile);
 //                $user['token'] = $user->createToken()->plainTextToken;
             $user['token'] = $user->createToken($user['token'])->plainTextToken;
-
+            //
 
 
             return $this->success(new UserResource($user));
