@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 
 
@@ -86,13 +87,14 @@ class UserController extends Controller
 * -------------------------------------------------
 */
 //            'token' =>$token
-        'type'=>$type,
-            'university'=>$university
+            'type' => $type,
+            'university' => $university
         ]);
         $user = User::find($user->id);
 //        $user['token'] = $user->createToken("UserToken")->plainTextToken;
         return $this->success(new UserResource($user));
     }
+
     //login
     public function login(Request $request)
     {
@@ -114,7 +116,9 @@ class UserController extends Controller
             $user = auth()->user();
 //            $user['profile'] = url($user->profile);
 //                $user['token'] = $user->createToken()->plainTextToken;
-            $user['token'] = $user->createToken("UserToken")->plainTextToken;
+//            $user['token'] = $user->createToken("UserToken")->plainTextToken;
+            $user['token'] = Str::random(60);
+
 
 //            $user['token'] = hash('sha256',uniqid());
             return $this->success(new UserResource($user));
@@ -154,6 +158,7 @@ class UserController extends Controller
         return $this->success(new UserResource($user));
 
     }
+
     public function index()
     {
         $users = User::all();
@@ -176,6 +181,7 @@ class UserController extends Controller
         return $d;
 
     }
+
     public function createRandomPasswordToUser()
     {
 
