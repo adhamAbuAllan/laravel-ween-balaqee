@@ -114,7 +114,7 @@ class UserController extends Controller
             $user = auth()->user();
 //            $user['profile'] = url($user->profile);
 //                $user['token'] = $user->createToken()->plainTextToken;
-            $user['token'] = $request->user()->createToken($request->token_name);
+            $user['token'] = $request->user()->createToken($request->token_name)->plainTextToken;
 
 //            $user['token'] = hash('sha256',uniqid());
             return $this->success(new UserResource($user));
