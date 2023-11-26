@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+
 class UserController extends Controller
 {
 //    protected $hidden =  ['updated_at'];
@@ -111,7 +112,7 @@ class UserController extends Controller
         if ($done) {
             $user = auth()->user();
 //            $user['profile'] = url($user->profile);
-            $user['token'] = $user->createToken("UserToken")->plainTextToken;
+                $user['token'] = $user->createToken("UserToken")->plainTextToken;
 
             return $this->success(new UserResource($user));
         }

@@ -21,10 +21,10 @@ class Apartment_Advantage extends Model
 
     protected $table = "apartment_advantages";
 
-    public function apartments_advantages():BelongsTo
-    {
-        return $this->belongsTo(ApartmentAdvantages::class);
-    }
+//    public function apartments_advantages():BelongsTo
+//    {
+//        return $this->belongsTo(ApartmentAdvantages::class);
+//    }
 
     public function apartments(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
