@@ -93,7 +93,7 @@ class UserController extends Controller
         $user = User::find($user->id);
 //        $user['token'] = Str::random(60);
 
-        $user['token'] = $user->createToken($request->name)->plainTextToken;
+        $user['token'] = $user->createToken("token")->plainTextToken;
         return $this->success(new UserResource($user));
     }
 
@@ -118,11 +118,10 @@ class UserController extends Controller
             $user = auth()->user();
 //            $user['profile'] = url($user->profile);
 //                $user['token'] = $user->createToken()->plainTextToken;
-//            $user['token'] = $user->createToken("UserToken")->plainTextToken;
-            $user['token'] = Str::random(60);
+            $user['token'] = $user->createToken("token")->plainTextToken;
 
 
-//            $user['token'] = hash('sha256',uniqid());
+
             return $this->success(new UserResource($user));
         }
 
