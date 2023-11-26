@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Sanctum\HasApiTokens;
 
 
 class UserController extends Controller
@@ -89,7 +90,7 @@ class UserController extends Controller
             'university'=>$university
         ]);
         $user = User::find($user->id);
-        $user['token'] = $user->createToken("UserToken")->plainTextToken;
+//        $user['token'] = $user->createToken("UserToken")->plainTextToken;
         return $this->success(new UserResource($user));
     }
     //login
@@ -112,8 +113,8 @@ class UserController extends Controller
         if ($done) {
             $user = auth()->user();
 //            $user['profile'] = url($user->profile);
-                $user['token'] = $user->createToken("UserToken")->plainTextToken;
-
+//                $user['token'] = $user->createToken("UserToken")->plainTextToken;
+            $user['token'] = hash('sha256',uniqid());
             return $this->success(new UserResource($user));
         }
 
