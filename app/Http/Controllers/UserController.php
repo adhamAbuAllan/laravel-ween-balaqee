@@ -95,7 +95,7 @@ class UserController extends Controller
 //        $user['token'] = Str::random(60);
 
 //        $user['token'] = $user->createToken('token')->plainTextToken;
-      $user['token'] =   $user->createToken('Client Token')->accessToken;
+        $user['token'] = $user->createToken("UserToken")->plainTextToken;
 
         return $this->success(new UserResource($user));
     }
@@ -139,22 +139,23 @@ class UserController extends Controller
         if ($done) {
             $user = auth()->user();
 
-            $plainTextToken = sprintf(
-                '%s%s%s',
-                config('sanctum.token_prefix', ''),
-                $tokenEntropy = Str::random(40),
-                hash('crc32b', $tokenEntropy)
-            );
+//            $plainTextToken = sprintf(
+//                '%s%s%s',
+//                config('sanctum.token_prefix', ''),
+//                $tokenEntropy = Str::random(40),
+//                hash('crc32b', $tokenEntropy)
+//            );
 
-                $token = hash('sha256', $plainTextToken);
+//                $token = hash('sha256', $plainTextToken);
 
 
 
 //            $user['profile'] = url($user->profile);
 //                $user['token'] = $user->createToken()->plainTextToken;
-            $user['token'] = new NewAccessToken($token, $token->getKey().'|'.$plainTextToken);
+//            $user['token'] = new NewAccessToken($token, $token->getKey().'|'.$plainTextToken);
             //
 
+            $user['token'] = $user->createToken("UserToken")->plainTextToken;
 
             return $this->success(new UserResource($user));
         }
