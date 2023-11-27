@@ -16,8 +16,6 @@ class SubsecrpionPlan extends Model
         "type",
         "description",
         "price",
-        "created_at",
-        "updated_at",
     ];
 
 public  function subscription():HasMany{

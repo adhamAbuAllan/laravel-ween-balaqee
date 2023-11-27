@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\SubscriptionPlanResource;
 use App\Models\SubsecrpionPlan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
