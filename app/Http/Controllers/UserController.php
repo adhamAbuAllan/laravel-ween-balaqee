@@ -94,7 +94,7 @@ class UserController extends Controller
         $user = User::find($user->id);
 //        $user['token'] = Str::random(60);
 
-        $user['token'] = $user->createToken($user['token'])->plainTextToken;
+        $user['token'] = $user->createToken('token')->plainTextToken;
         return $this->success(new UserResource($user));
     }
 
