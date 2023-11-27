@@ -30,7 +30,7 @@ class Apartments extends Migration
             $table->integer('owner_id')->default(1);
             $table->string('location',55);
             $table->integer('count_of_student');
-            $table->string('phone',12);
+//            $table->string('phone',12);
 //            $table->string('images')->nullable();
             $table->double('price');
 //            $table->string('first_image');

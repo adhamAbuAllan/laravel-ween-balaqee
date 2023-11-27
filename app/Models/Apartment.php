@@ -33,7 +33,7 @@ class Apartment extends Model
 
 //        'images',
         'created_at',
-        'phone',
+//        'phone',
         'active',
 //        'first_image'
 //    'advantages'
