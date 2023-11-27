@@ -9,6 +9,8 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\CityTestController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\SubsecrpionController;
+use App\Http\Controllers\SubsecrpionPlanController;
 use App\Http\Controllers\TypeOfApartmentController;
 use App\Http\Controllers\TypeOfUserController;
 use App\Http\Controllers\UniversityController;
@@ -37,7 +39,6 @@ Route::post('/user/index', [UserController::class,'index']);
 Route::post('/user/all', [UserController::class,'all']);
 Route::post('/apartment/add', [ApartmentController::class,'add'])->middleware('auth:sanctum');
 Route::post('/apartment/one', [ApartmentController::class,'one']);
-//Route::get('/apartment/{id}', [ApartmentController::class,'get_apartment_info']);
 Route::post('/apartment/update', [ApartmentController::class,'update'])->middleware('auth:sanctum');
 Route::post('/apartment/delete', [ApartmentController::class,'delete'])->middleware('auth:sanctum');
 Route::get('/apartment/all', [ApartmentController::class,'all']);
@@ -55,18 +56,17 @@ Route::get('/apartment_advantage/insertAdvInApartment3',[ApartmentAdvantageContr
 Route::post('/apartment_advantage/show/{id}',[ApartmentAdvantageController::class,'show']);
 Route::post('/apartment_advantage/showAdvantages',[ApartmentAdvantageController::class,'showAdvantages']);
 Route::post('/apartment_advantage/getAdvantagesForApartment',[ApartmentAdvantageController::class,'getAdvantagesForApartment']);
-
-//Route::get('/apartments/show',[ApartmentController::class,'show']);
-
-//Route::get('/apartmentTest/all',[ApartmentTestController::class,'all']);
-//Route::post('/apartmentTest/add',[ApartmentTestController::class,'add']);
-//Route::post('/cityTest/add',[CityTestController::class,'add']);
-//Route::get('/cityTest/all',[CityTestController::class,'all']);
 Route::post('/booking/add',[BookingController::class,'add'])->middleware('auth:sanctum');
 Route::get('/booking/all',[BookingController::class,'all']);
 Route::get('/comment/all',[CommentController::class,'all']);
 Route::post('/comment/add',[CommentController::class,'add']);
 Route::post('/create_random_password/add',[UserController::class,'createRandomPasswordToUser']);
+Route::post('/createSubsecrpion/cerate',[SubsecrpionController::class,'createSubsecrpion']);
+Route::post('/addSubsecrpionPlan/add',[SubsecrpionPlanController::class,'addSubsecrpionPlan']);
+
+
+
+
 
 
 ///for testing

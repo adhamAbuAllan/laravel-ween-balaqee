@@ -6,6 +6,7 @@ use App\Models\TypeOfUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -30,6 +31,7 @@ class User extends Authenticatable
         'password',
 //        'about_the_user',
         'phone',
+        'subscribtion_id',
 //        'major',
 
         /*
@@ -72,7 +74,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public $timestamps = true;
-
+    public function subscribtions():HasMany{
+        return $this->hasMany(Subsecrpion::class);
+    }
     public function university():BelongsTo
     {
         return $this->belongsTo(University::class,"university_id","id");

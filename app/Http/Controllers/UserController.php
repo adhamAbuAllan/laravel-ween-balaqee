@@ -1,5 +1,6 @@
 <?php
-
+//token of project:
+//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
 namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;

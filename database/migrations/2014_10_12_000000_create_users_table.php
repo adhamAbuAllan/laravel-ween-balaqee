@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
              * $table->integer('type_id',)->default(1);
              * -------------------------------------------------
              */
+            $table->integer('subscribtion_id');
             $table->string('university',)->default("");
             $table->string('type')->default("");
 //            $table->string('profile')->default('images/profile/user.png');
