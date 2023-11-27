@@ -15,7 +15,7 @@ class Photos extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
+            $table->string('url',70);
             $table->integer('apartment_id');
             $table->integer('active')->default(1);
             $table->timestamps();
