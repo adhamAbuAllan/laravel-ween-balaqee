@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('subsecrpion_plans', function (Blueprint $table) {
             $table->id();
-            $table->string('type',5);
+            $table->string('type',5)->default("شهري");
             $table->string('description');
             $table->integer('price');
             $table->timestamps();
