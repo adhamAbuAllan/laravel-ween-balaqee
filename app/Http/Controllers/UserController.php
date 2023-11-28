@@ -135,7 +135,7 @@ class UserController extends Controller
         }
         $done = auth()->attempt([
             'phone' => $request->phone,
-            'password' => $request->password
+            'password' => $request->password,
         ]);
         if ($done) {
             $user = auth()->user();
@@ -158,7 +158,7 @@ class UserController extends Controller
 
             $user['token'] = $user->createToken("UserToken")->plainTextToken;
 
-            return $this->success(new UserResource($user));
+            return $this->success(new UserResource($user)) && User::with('subscribtions');
         }
 
 //
