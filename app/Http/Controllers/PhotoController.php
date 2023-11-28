@@ -61,7 +61,7 @@ class PhotoController extends Controller
             $imageName = 'img_' . rand(1, 150000) . '.png';
 //            'img_'.date('Ymdhis').'.'.$image->extension();
             $dir = "images/apartments_images";
-            $image->move(public_path($dir), $imageName);
+            $image->move($dir, $imageName);
             $path = $dir . '/'
                 .
                 $imageName;

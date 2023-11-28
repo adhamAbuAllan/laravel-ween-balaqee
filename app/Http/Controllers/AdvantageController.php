@@ -35,7 +35,7 @@ class AdvantageController extends Controller
 //        //$icon->move($fulldir, $name);
 //
 //        //for Localhost
-        $icon_image->move(public_path($dir),$imageName);
+        $icon_image->move($dir,$imageName);
         $path = $dir . '/'
             .
             $imageName;
