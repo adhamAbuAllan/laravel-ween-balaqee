@@ -157,7 +157,7 @@ class UserController extends Controller
             //
 
             $user['token'] = $user->createToken("UserToken")->plainTextToken;
-            $user['subscribtion_id'] = User::with('subscribtions.id');
+            $user['subscribtion_id'] = User::with('subscribtions.user_id');
 
             return $this->success(new UserResource($user)) ;
         }
