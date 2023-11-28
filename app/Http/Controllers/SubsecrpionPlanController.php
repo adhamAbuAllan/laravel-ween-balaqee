@@ -23,10 +23,10 @@ class SubsecrpionPlanController extends Controller
             return $this->fail($msg);
         }
 
-        $type = $request->type;
-        $description = $request->description;
+        $type = $request->input('type');
+        $description = $request->input('description');
 
-        $price = $request->price;
+        $price = $request->input('price');
         $data = SubsecrpionPlan::create([
             'documentary_photo' => $type,
             'payment_status' => $description,

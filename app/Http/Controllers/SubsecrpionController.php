@@ -31,11 +31,11 @@ class SubsecrpionController extends Controller
             return $this->fail($msg);
         }
 
-        $payment_status = $request->payment_status;
-        $start_date = $request->start_date->format('Y-m-d');
-        $end_date = $request->end_date->format('Y-m-d');
-        $plan_id = $request->plan_id;
-        $user_id = $request->user_id;
+        $payment_status = $request->input('payment_status');;
+        $start_date = $request->input('start_date')->format('Y-m-d');
+        $end_date = $request->input('end_date')->format('Y-m-d');
+        $plan_id = $request->input('plan_id');
+        $user_id = $request->input('user_id');
         $uploadedImages = [];
 
         $images = $request->file('images');
