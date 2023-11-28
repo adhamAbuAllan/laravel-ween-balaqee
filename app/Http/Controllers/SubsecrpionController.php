@@ -28,7 +28,7 @@ class SubsecrpionController extends Controller
         // Get the data from the Advantage table for each unique advantage_id
         $subscribtionsData = Subsecrpion::whereIn('id', $subscribtionsIds)->get();
 
-        return response()->json(['status' => true, 'data' => $subscribtionsData]);
+        return response()->json(['status' => true, 'data' =>new OwnSubscriptionResource($$subscribtionsData)]);
     }
 
 
