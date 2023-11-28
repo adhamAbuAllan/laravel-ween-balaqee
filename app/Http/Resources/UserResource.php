@@ -12,6 +12,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name ?? "",
             'phone' => $this->phone ?? "" ,
+            "subscribtion_id"=>$this->subscribtion??-1,
             /*
        * be careful !!!
        * don't delete those two lines those tables of database
