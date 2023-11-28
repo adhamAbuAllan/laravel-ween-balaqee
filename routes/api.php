@@ -61,10 +61,10 @@ Route::get('/booking/all',[BookingController::class,'all']);
 Route::get('/comment/all',[CommentController::class,'all']);
 Route::post('/comment/add',[CommentController::class,'add']);
 Route::post('/create_random_password/add',[UserController::class,'createRandomPasswordToUser']);
-Route::post('/createSubsecrpion/cerate',[SubsecrpionController::class,'createSubsecrpion']);
-Route::post('/createSubsecrpion/getSubsecrptionOfUser',[SubsecrpionController::class,'getSubsecrptionOfUser']);
+Route::post('/subsecrpion/cerate',[SubsecrpionController::class,'createSubsecrpion']);
+Route::post('/subsecrpion/getSubsecrptionOfUser',[SubsecrpionController::class,'getSubsecrptionOfUser']);
 
-Route::post('/addSubsecrpionPlan/add',[SubsecrpionPlanController::class,'addSubsecrpionPlan']);
+Route::post('/subsecrpionPlan/add',[SubsecrpionPlanController::class,'addSubsecrpionPlan']);
 
 
 
