@@ -76,7 +76,7 @@ class SubsecrpionController extends Controller
             $path = $dir . '/'
                 .
                 $imageName;
-            $quitUrl = 'https://weenbalaqee.com/laravel-ween-balaqee/' . $path;
+            $quitUrl = 'https://weenbalaqee.com/laravel-ween-balaqee' . $path;
             $data = Subsecrpion::create([
                 'documentary_photo' => $quitUrl,
                 'payment_status'=>$payment_status,
