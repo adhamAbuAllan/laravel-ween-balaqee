@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SubscriptionPlanResource;
 use App\Models\SubsecrpionPlan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -33,8 +34,9 @@ class SubsecrpionPlanController extends Controller
             'start_date' => $price,
 
         ]);
+        $supPlan = new SubscriptionPlanResource($data);
 
-        return $this->success($data);
+        return $this->success($supPlan);
     }
 
 }

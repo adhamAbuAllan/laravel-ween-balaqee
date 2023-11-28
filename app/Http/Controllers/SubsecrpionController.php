@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\SubscriptionResource;
+use App\Http\Resources\OwnSubscriptionResource;
 use App\Models\Subsecrpion;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -87,7 +87,7 @@ class SubsecrpionController extends Controller
                 'user_id'=>$user_id,
             ]);
 
-            $uploadedImages[] = new SubscriptionResource($data);
+            $uploadedImages[] = new  OwnSubscriptionResource($data);
         }
         return $this->success($uploadedImages);
     }
