@@ -36,8 +36,8 @@ class SubsecrpionController extends Controller
         }
 
         $payment_status = $request->input('payment_status');;
-        $start_date = $request->input('start_date')->format('Y-m-d');
-        $end_date = $request->input('end_date')->format('Y-m-d');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
         $plan_id = $request->input('plan_id');
         $user_id = $request->input('user_id');
         $uploadedImages = [];
