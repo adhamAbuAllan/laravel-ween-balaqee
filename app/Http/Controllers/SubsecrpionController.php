@@ -4,12 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\SubscriptionResource;
 use App\Models\Subsecrpion;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class SubsecrpionController extends Controller
 {
 
+    public function getSubsecrptionOfUser(Request $request)
+    {
+        $userId = $request->input('userId');
+
+        // Get the apartment with its associated advantages based on apartment_id
+        $user = User::with('subscribtions')->find($userId);
+
+        if (!$user) {
+            return response()->json(['status' => false, 'msg' => 'user not found'], 404);
+        }
+
+        // Get the unique advantage_ids associated with the apartment
+        $subscribtionsIds = $user->subscribtions->pluck('id')->unique();
+
+        // Get the data from the Advantage table for each unique advantage_id
+        $subscribtionsData = Subsecrpion::whereIn('id', $subscribtionsIds)->get();
+
+        return response()->json(['status' => true, 'data' => $subscribtionsData]);
+    }
 
 
 
