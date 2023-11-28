@@ -71,7 +71,7 @@ class SubsecrpionController extends Controller
         foreach ($images as $image) {
             $imageName = 'img_' . rand(1, 150000) . '.png';
 //            'img_'.date('Ymdhis').'.'.$image->extension();
-            $dir = "images/subsections_photos";
+            $dir = "assets/images/subsections_photos";
             $image->move(public_path($dir), $imageName);
             $path = $dir . '/'
                 .
