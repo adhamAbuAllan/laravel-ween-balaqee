@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('subsecrpions', function (Blueprint $table) {
             $table->id();
-            $table->string('documentary_photo',100);
+            $table->string('documentary_photo',150);
             $table->string('payment_status',9);
             $table->string('start_date');
             $table->string('end_date');

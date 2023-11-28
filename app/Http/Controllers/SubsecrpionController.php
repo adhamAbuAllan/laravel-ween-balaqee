@@ -69,7 +69,7 @@ class SubsecrpionController extends Controller
         }
 
         foreach ($images as $image) {
-            $imageName = 'img_' . rand(1, 150000) . '.png';
+            $imageName = 'img_' . rand(1, 9500) . '.png';
 //            'img_'.date('Ymdhis').'.'.$image->extension();
             $dir = "assets/images/subsections_photos";
             $image->move(public_path($dir), $imageName);
@@ -77,7 +77,6 @@ class SubsecrpionController extends Controller
                 .
                 $imageName;
             $quitUrl = 'https://weenbalaqee.com/laravel-ween-balaqee/' . $path;
-
             $data = Subsecrpion::create([
                 'documentary_photo' => $quitUrl,
                 'payment_status'=>$payment_status,
