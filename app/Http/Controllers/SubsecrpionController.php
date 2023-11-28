@@ -11,13 +11,17 @@ class SubsecrpionController extends Controller
 {
 
 
+
+
+
+
     public function createSubsecrpion(Request $request)
     {
         $fields = [
             'payment_status' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'plan_id' => 'required|exists:subscription_plans,id',
+            'plan_id' => 'required|exists:subsecrpion_plans,id',
             'user_id' => 'required|exists:users,id',
             'created_at',
             'updated_at',
