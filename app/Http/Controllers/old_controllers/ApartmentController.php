@@ -28,7 +28,7 @@ class ApartmentController extends Controller
             "price"=>"required",
             "owner_id"=>"required|exists:users,id",
             "city_id" => "required|exists:cities,id",
-            "type_id" => "required|exists:type_of_apartment,id",
+            "type_id" => "required|exists:type_of_apartments,id",
 //            if is_booking have value '1' that is not booking yet.
             //and  is booking if that have value '2'
 //            "is_booking" => "required|",
