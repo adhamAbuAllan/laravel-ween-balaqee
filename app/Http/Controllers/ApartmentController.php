@@ -33,7 +33,7 @@ class ApartmentController extends Controller
             "description" => "required",
             "location" => "required",
             "price" => "required",
-            "type_id" => "required|exists:type_of_apartment,id",
+            "type_id" => "required|exists:type_of_apartments,id",
             "city_id" => "required|exists:cities,id",
             "count_of_student" => "required",
 //            "phone" => "required",

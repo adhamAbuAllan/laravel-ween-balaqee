@@ -3,12 +3,13 @@
 //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
 //use those commands to make git pull from gitHub to your project in your server
 /*
- 
+
 git stash
 git pull --rebase
 git stash apply
 
  */
+
 namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
