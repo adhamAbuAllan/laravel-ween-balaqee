@@ -25,8 +25,8 @@ class Apartment extends Model
         'description',
         'location',
         'price',
-        'type',
-        'city',
+        'type_id',
+        'city_id',
         'count_of_student',
 //        'is_booking',
         'owner_id',
@@ -39,14 +39,6 @@ class Apartment extends Model
 //    'advantages'
 
 
-        /*
-*Be careful !!
-* don't delete those lines is important in future
--------------
-        'city_id',
-        'type_id',
---------------
-*/
 
 
     ];

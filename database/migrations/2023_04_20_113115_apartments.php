@@ -22,8 +22,8 @@ class Apartments extends Migration
 //            $table->integer('is_booking')->default(1);
             $table->integer('rooms');
             $table->integer('bathrooms');
-            $table->integer('city');
-            $table->integer('type');
+            $table->integer('city_id');
+            $table->integer('type_id');
             $table->integer('square_meters');
             $table->string('title',55);
             $table->string('description',512);
@@ -38,16 +38,7 @@ class Apartments extends Migration
             $table->integer('active')->default(1);
             $table->timestamps();
 
-            /*
-             * Be careful !!!
-             * don't delete those two lines very important lines
-             * those will active after solve or know how save data of dropdown
-             * in flutter
-             * ---------------------
-             *  $table->integer('city_id');
-                $table->integer('type_id');
-                ---------------------
-             */
+
 
         });
     }
