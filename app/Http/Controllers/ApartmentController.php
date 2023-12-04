@@ -197,6 +197,26 @@ $type = $request->type_id;
 //        $apartmentResource = ApartmentResource::collection($apartments);
 //        return $this->success($apartmentResource);
 //    }
+
+
+//    public function all(Request $request)
+//    {
+//        // Get the 'type' parameter from the request
+//        $type = $request->input('type');
+//
+//        // Query apartments based on the type if provided
+//        $apartments = $type
+//            ? Apartment::where('type', $type)->get()
+//            : Apartment::all();
+//
+//        $apartmentResource = ApartmentResource::collection($apartments);
+//
+//        return $this->success($apartmentResource);
+//    }
+
+
+
+
     public function all(Request $request)
     {
         // Get the 'type' parameter from the request
@@ -204,13 +224,16 @@ $type = $request->type_id;
 
         // Query apartments based on the type if provided
         $apartments = $type
-            ? Apartment::where('type', $type)->get()
+            ? Apartment::whereHas('type', function ($query) use ($type) {
+                $query->where('name', $type);
+            })->get()
             : Apartment::all();
 
         $apartmentResource = ApartmentResource::collection($apartments);
 
         return $this->success($apartmentResource);
     }
+
 
     public function one(Request $request)
     {
