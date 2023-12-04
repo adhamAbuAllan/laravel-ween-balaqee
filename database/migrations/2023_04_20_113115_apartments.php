@@ -22,13 +22,13 @@ class Apartments extends Migration
 //            $table->integer('is_booking')->default(1);
             $table->integer('rooms');
             $table->integer('bathrooms');
-            $table->string('city');
-            $table->string('type');
+            $table->integer('city');
+            $table->integer('type');
             $table->integer('square_meters');
             $table->string('title',55);
-            $table->longText('description');
+            $table->string('description',512);
             $table->integer('owner_id')->default(1);
-            $table->string('location',55);
+            $table->string('location',70);
             $table->integer('count_of_student');
 //            $table->string('phone',12);
 //            $table->string('images')->nullable();

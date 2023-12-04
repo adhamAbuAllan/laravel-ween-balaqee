@@ -208,6 +208,7 @@ $type = $request->type_id;
             : Apartment::all();
 
         $apartmentResource = ApartmentResource::collection($apartments);
+
         return $this->success($apartmentResource);
     }
 

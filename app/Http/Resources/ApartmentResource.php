@@ -47,6 +47,7 @@ class ApartmentResource extends JsonResource
             "advantage" =>  $this->advantages,
 //            "advantages" =>  $this->advantages,
             "count_of_student"=>$this->count_of_student??0,
+            "active"=>$this->active??1,
 //            'phone'=>$this->phone??0,
 //            'first_image'=>$this->first_image??"",
 //            "booking-id"=>$this
