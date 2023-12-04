@@ -33,8 +33,8 @@ class ApartmentController extends Controller
             "description" => "required",
             "location" => "required",
             "price" => "required",
-            "type" => "required",
-            "city" => "required",
+            "type_id" => "required|exists:type_of_apartment,id",
+            "city_id" => "required|exists:cities,id",
             "count_of_student" => "required",
 //            "phone" => "required",
 //            "photo"=>"required",
@@ -82,8 +82,8 @@ class ApartmentController extends Controller
         $square_meters = $request->square_meters;
         $description = $request->description;
         $location = $request->location;
-        $type = $request->type;
-        $city = $request->city;
+        $type_id = $request->type_id;
+        $city_id = $request->city_id;
         $countOfStudent = $request->count_of_student;
         //$phone = $request->phone;
 
@@ -149,8 +149,8 @@ $type = $request->type_id;
             * under two lines is will delete after fix
             * dropdown button save data
             */
-            'type' => $type,
-            'city' => $city,
+            'type_id' => $type_id,
+            'city_id' => $city_id,
             'count_of_student' => $countOfStudent,
 //"token"=>$owner->token,
 
@@ -185,7 +185,7 @@ $type = $request->type_id;
             $advantages = $apartment->advantages;
             return view('apartment.show', ['apartment' => $apartment, 'advantages' => $advantages]);
         } else {
-            return "now found";
+            return "not found";
         }
     }
 

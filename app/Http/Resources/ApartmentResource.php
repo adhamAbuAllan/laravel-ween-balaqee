@@ -20,6 +20,7 @@ class ApartmentResource extends JsonResource
     {
         $user = User::find($this->owner_id);
         $advantages = Advantage::find($this->advantage_id);
+
 //        return $this->name;
         return [
             "id" =>$this->id,
