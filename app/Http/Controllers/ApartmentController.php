@@ -227,7 +227,7 @@ $type = $request->type_id;
             ? Apartment::whereHas('type', function ($query) use ($type) {
                 $query->where('name', $type);
             })->get()
-            : Apartment::all();
+            : Apartment::all()->reverse();
 
         $apartmentResource = ApartmentResource::collection($apartments);
 
