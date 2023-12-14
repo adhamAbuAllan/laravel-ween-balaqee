@@ -16,11 +16,9 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->default("");
             $table->string('phone')->unique();
 //            $table->string('about_the_user')->default("");
 //            $table->string('major',55)->default("");
-            $table->string('gender',)->default("");
 //            $table->string('email')->default("")->unique();
             /*
              * be careful !!!
@@ -29,9 +27,7 @@ class CreateUsersTable extends Migration
              * //$table->integer('university_id')->default(1);
              * $table->integer('type_id',)->default(1);
 1             */
-            $table->integer('subscribtion_id')->nullable();
-            $table->string('university',)->default("");
-            $table->string('type')->default("");
+            $table->integer('type_id')->default(6);//6 is guest user that mean is no account have
 //            $table->string('profile')->default('images/profile/user.png');
             $table->string('password');
             $table->integer('active')->default(1);

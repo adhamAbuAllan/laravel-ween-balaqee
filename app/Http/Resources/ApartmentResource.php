@@ -44,7 +44,7 @@ class ApartmentResource extends JsonResource
             "price" => $this->price ?? 0.0,
             "city" => $this->city??"",
 
-            "type" => $this->type??"",
+            "type" => $this->type,
             "advantage" =>  $this->advantages,
 //            "advantages" =>  $this->advantages,
             "count_of_student"=>$this->count_of_student??0,

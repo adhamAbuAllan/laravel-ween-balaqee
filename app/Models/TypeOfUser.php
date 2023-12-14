@@ -18,8 +18,8 @@ class TypeOfUser extends Model
         'active',
     ];
     protected $table = "type_of_users";
-    public function users():HasMany{
-        return $this->hasMany(User::class);
-    }
+//    public function users():HasMany{
+//        return $this->hasMany(User::class);
+//    }
 
 }

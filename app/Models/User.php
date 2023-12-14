@@ -27,11 +27,9 @@ class User extends Authenticatable
     protected $fillable = [
         'id',
         'name',
-        'email',
         'password',
 //        'about_the_user',
         'phone',
-        'subscribtion_id',
 //        'major',
 
         /*
@@ -42,10 +40,8 @@ class User extends Authenticatable
             'type_id',
           * -------------------------------------------------
          */
-        'university',
-        'type',
+        'type_id',
         'token',
-        'gender',
 //        'random_password',
 //        'profile',
         'active',
