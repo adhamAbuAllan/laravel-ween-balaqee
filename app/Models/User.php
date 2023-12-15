@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\TypeOfUser;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\University;
 
 
 
@@ -69,10 +66,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public $timestamps = true;
-    public function subscribtions():HasMany{
-        return $this->hasMany(Subsecrpion::class);
-    }
+//    public $timestamps = true;
+//    public function subscribtions():HasMany{
+//        return $this->hasMany(Subsecrpion::class);
+//    }
     public function university():BelongsTo
     {
         return $this->belongsTo(University::class,"university_id","id");
@@ -82,7 +79,7 @@ class User extends Authenticatable
      return $this->belongsTo(TypeOfUser::class);//,"type_id","id");
 
     }
-//    public function countryCodePhoneNumber(): BelongsTo{return $this->belongsTo(CountryPhoneNumber::class,'country_phone_number_id','id');}
+    public function countryCode(): BelongsTo{return $this->belongsTo(CountryPhoneNumber::class,'country_phone_number_id','id');}
 
 
 }
