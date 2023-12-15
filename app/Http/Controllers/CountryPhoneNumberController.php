@@ -31,7 +31,7 @@ class CountryPhoneNumberController extends Controller
         $dir = "iamges/flags";
         $flag_image->move($dir, $imageName);
         $path = $dir ."/" .$imageName;
-        $quitUrl = 'http://weenbalaqee.com/'.$path;
+        $quitUrl = 'https://weenbalaqee.com/'.$path;
         $data = CountryPhoneNumber::create([
             'country_name'=>$country_name,
             'country_phone_number'=>$country_phone_number,
