@@ -1,6 +1,6 @@
 <?php
 //token of project:
-//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
+//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
 //use those commands to make git pull from gitHub to your project in your server
 /*
 
@@ -33,6 +33,7 @@ class UserController extends Controller
             "name" => "required",
             "phone" => "required|unique:users",
             "password" => "required",
+            'country_phone_number_id'=>"required|exists:country_phone_numbers,id",
             /*
 * be careful !!!
 * don't delete those two lines those tables of database
@@ -41,10 +42,7 @@ class UserController extends Controller
             'university_id'=>"exists:universities,id",
 * -------------------------------------------------
 */
-            'gender',
-            'type',
-            'university',
-            'email'
+            'type_id'=>"required|exists:type_of_users,id"
 
 //            "type"=>"required|exists:type_of_user,id",
 
@@ -59,7 +57,7 @@ class UserController extends Controller
         $password = app('hash')->make($request->password);
         $phone = $request->phone;
         $name = $request->name;
-        $gender = $request->gender;
+        $country_phone_number_id = $request->country_phone_number_id;
         /*
      * be careful !!!
      * don't delete those two lines those tables of database
@@ -69,9 +67,7 @@ class UserController extends Controller
      * -------------------------------------------------
      */
 
-        $type = $request->type;
-        $university = $request->university;
-        $email = $request->email;
+        $type_id = $request->type_id;
 //        $token = $request->token;
 
 
@@ -86,8 +82,7 @@ class UserController extends Controller
             'name' => $name,
             'phone' => $phone,
             'password' => $password,
-            'gender' => $gender,
-            'email' => $email,
+                'country_phone_number_id'=>$country_phone_number_id,
 //            'random_password' => $random_password
             /*
 * be careful !!!
@@ -98,8 +93,7 @@ class UserController extends Controller
 * -------------------------------------------------
 */
 //            'token' =>$token
-            'type' => $type,
-            'university' => $university
+            'type_id' => $type_id,
         ]);
         $user = User::find($user->id);
 //        $user['token'] = Str::random(60);
