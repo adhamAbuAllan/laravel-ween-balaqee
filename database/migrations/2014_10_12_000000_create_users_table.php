@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->integer('type_id')->default(6);//6 is guest user that mean is no account have
 //            $table->string('profile')->default('images/profile/user.png');
             $table->string('password');
+            $table->integer('country_phone_number_id',)->default(2);
             $table->integer('active')->default(1);
 //            $table->string('random_password');
             $table->rememberToken();

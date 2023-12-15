@@ -31,7 +31,7 @@ class User extends Authenticatable
 //        'about_the_user',
         'phone',
 //        'major',
-
+        'country_phone_number_id',
         /*
           * be careful !!!
           * don't delete those two lines those tables of database

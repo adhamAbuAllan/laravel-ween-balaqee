@@ -12,7 +12,8 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name ?? "",
             'phone' => $this->phone ?? "" ,
-            "subscribtion_id"=>$this->subscribtion??-1,
+            'type_id' => $this->type_id ??6,
+           'country_phone_number_id'=>$this->country_phone_number??2,
             /*
        * be careful !!!
        * don't delete those two lines those tables of database
@@ -21,16 +22,13 @@ class UserResource extends JsonResource
           'type' =>new TypeOfUserResource($this->type),
        * -------------------------------------------------
       */
-          "university"=>$this->university??"",
-            'type'=>$this->type??"",
 
 //    ($this->type),
             //   TypeOfUser::find($this->type_id),// ?? "" ,
-            'gender'=>$this->gender??"",
             'created_at'=>$this->create_at??date("Y-m-d"),
             "token" => $this->token,
 //            'updated_at'=>$this->updated_at??"",
-            'email'=>$this->email ?? "",
+
 //            'random_password'=>$this->random_password,
 
 //        'gender' => $this->gender,
