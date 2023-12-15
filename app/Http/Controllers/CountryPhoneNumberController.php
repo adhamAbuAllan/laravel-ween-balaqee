@@ -26,9 +26,9 @@ class CountryPhoneNumberController extends Controller
         }
         $country_name=  $request->country_name;
         $country_phone_number=  $request->country_phone_number;
-        $flag_image = $request->file('flag');
+        $flag_image = $request->file('flag_image');
         $imageName = $flag_image->getClientOriginalName();
-        $dir = "iamges/flags";
+        $dir = "images/icons/flags";
         $flag_image->move($dir, $imageName);
         $path = $dir ."/" .$imageName;
         $quitUrl = 'https://weenbalaqee.com/'.$path;
