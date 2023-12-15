@@ -18,6 +18,7 @@ class CountryPhoneNummberResource extends JsonResource
             'id' => $this->id,
             "country_name" =>$this->country_name??"",
             "country_phone_number" =>$this->country_phone_number??"",
+            "flag"=>$this->flag??"",
             "created_at" =>$this->created_at ?? "",
             "updated_at"=>$this->updated_at??""
         ];    }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('country_name',2);
             $table->string('country_phone_number',3)->unique();
+            $table->integer('flag');
             $table->timestamps();
         });
     }

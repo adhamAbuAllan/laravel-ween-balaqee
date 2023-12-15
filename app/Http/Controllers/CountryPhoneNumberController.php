@@ -13,6 +13,8 @@ class CountryPhoneNumberController extends Controller
         $fields = [
             'country_name'=>"required",
             'country_phone_number'=>"required",
+            'flag_image'=>"required|image|mimes:jpeg,png,jpg,gif|max:2048",
+
 
 
         ];
@@ -24,9 +26,16 @@ class CountryPhoneNumberController extends Controller
         }
         $country_name=  $request->country_name;
         $country_phone_number=  $request->country_phone_number;
+        $flag_image = $request->file('flag');
+        $imageName = $flag_image->getClientOriginalName();
+        $dir = "iamges/flags";
+        $flag_image->move($dir, $imageName);
+        $path = $dir ."/" .$imageName;
+        $quitUrl = 'http://weenbalaqee.com/'.$path;
         $data = CountryPhoneNumber::create([
             'country_name'=>$country_name,
             'country_phone_number'=>$country_phone_number,
+            'flag'=>$quitUrl,
         ]);
 
         return $this->success(new CountryPhoneNummberResource($data));

@@ -26,7 +26,7 @@ class AdvantageController extends Controller
         $icon_image = $request->file('icon_image');
         $categoryOfIcon = $request->category_of_icon;
 
-        $imageName = $icon_image->getClientOriginalName() ;
+        $imageName = $icon_image->getClientOriginalName();
 ////
         $dir = "images/icons/$categoryOfIcon";
 ////        $fulldir = "/home/akram/public_html/" . $dir;
