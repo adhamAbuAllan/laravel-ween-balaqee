@@ -136,7 +136,8 @@ class ApartmentAdvantageController extends Controller
     {
         $fields = [
             'apartment_id' => 'required|exists:apartments,id',
-            'advantage_id' => 'required|exists:advantages,id',
+            'advantages' => 'required|array',
+            'advantages.*' => 'exists:advantages,id',
         ];
 
         $validator = Validator::make($request->all(), $fields);
@@ -147,16 +148,20 @@ class ApartmentAdvantageController extends Controller
         }
 
         $apartment_id = $request->input('apartment_id');
-        $advantage_id = $request->input('advantage_id');
+        $advantage_ids = $request->input('advantages');
 
-        $data = Apartment_Advantage::create([
-            'apartment_id' => $apartment_id,
-            'advantage_id' => $advantage_id,
-        ]);
+        $data = [];
+
+        foreach ($advantage_ids as $advantage_id) {
+            $apartmentAdvantage = Apartment_Advantage::create([
+                'apartment_id' => $apartment_id,
+                'advantage_id' => $advantage_id,
+            ]);
+
+            $data[] = $apartmentAdvantage;
+        }
 
         return $this->success($data);
-
-
     }
 
 
