@@ -14,6 +14,11 @@ class CountryPhoneNummberResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
-    }
+        return [
+            'id' => $this->id,
+            "country_name" =>$this->country_name??"",
+            "country_phone_number" =>$this->country_phone_number??"",
+            "created_at" =>$this->created_at ?? "",
+            "updated_at"=>$this->updated_at??""
+        ];    }
 }

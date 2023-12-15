@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('country_phone_numbers', function (Blueprint $table) {
             $table->id();
+            $table->string('country_name',17);
+            $table->integer('country_phone_number')->unique();
             $table->timestamps();
         });
     }
