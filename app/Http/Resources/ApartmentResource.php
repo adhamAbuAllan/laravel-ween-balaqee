@@ -18,15 +18,15 @@ class ApartmentResource extends JsonResource
      */
     public function toArray($request): array
     {
-        $user = User::find($this->owner_id);
-        $advantages = Advantage::find($this->advantage_id);
+//        $user = User::find($this->owner_id);
+//        $advantages = Advantage::find($this->advantage_id);
 
 //        return $this->name;
         return [
             "id" =>$this->id,
 
 //            "owner_id" => new UserResource($user),
-            "owner" => $user,
+            "owner_id" => $this->owner,
 
 //
 
