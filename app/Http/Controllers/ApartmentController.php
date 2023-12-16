@@ -24,7 +24,7 @@ class ApartmentController extends Controller
 //        return $request->all();
 
         $fields = [
-
+                "owner_id" => "exists:users,id",
             "rooms" => "required",
 //            ""=>"",
             "bathrooms" => "required",
@@ -72,9 +72,10 @@ class ApartmentController extends Controller
         }
 
 
-        $owner = $request->user();
-        $apatment = $request->apartment;
-        $owner_id = $owner->id;
+//        $owner = $request->user();
+//        $apatment = $request->apartment;
+//        $owner_id = $owner->id;
+        $owner_id = $request->owner_id;
         $title = $request->title;
         $price = $request->price;
         $rooms = $request->rooms;
