@@ -79,7 +79,7 @@ class User extends Authenticatable
      return $this->belongsTo(TypeOfUser::class);//,"type_id","id");
 
     }
-    public function countryCode(): BelongsTo{return $this->belongsTo(CountryPhoneNumber::class,'country_phone_number_id','id');}
+    public function countryCode(): BelongsTo{return $this->belongsTo(CountryPhoneNumber::class,);}
 
 
 }

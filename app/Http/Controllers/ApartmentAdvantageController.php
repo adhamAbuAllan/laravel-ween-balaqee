@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ApartmentAdvantageResource;
 use App\Models\Advantage;
 use App\Models\Apartment;
 use App\Models\Apartment_Advantage;
@@ -161,7 +162,7 @@ class ApartmentAdvantageController extends Controller
             $data[] = $apartmentAdvantage;
         }
 
-        return $this->success($data);
+        return $this->success(new ApartmentAdvantageResource($data));
     }
 
 

@@ -13,8 +13,8 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name ?? "",
             'phone' => $this->phone ?? "" ,
-            'type_id' => $this->type,
-           'country_phone_number_id'=>$this->countryCode,
+            'type' => $this->type,
+           'countryCode'=>$this->countryCode,
             /*
        * be careful !!!
        * don't delete those two lines those tables of database

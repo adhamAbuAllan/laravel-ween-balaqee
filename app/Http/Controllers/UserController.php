@@ -41,7 +41,10 @@ class UserController extends Controller
             "name" => "required",
             "phone" => "required|unique:users",
             "password" => "required",
+
             'country_phone_number_id'=>"required|exists:country_phone_numbers,id",
+            'type_id'=>"required|exists:type_of_users,id"
+
             /*
 * be careful !!!
 * don't delete those two lines those tables of database
@@ -50,7 +53,6 @@ class UserController extends Controller
             'university_id'=>"exists:universities,id",
 * -------------------------------------------------
 */
-            'type_id'=>"required|exists:type_of_users,id"
 
 //            "type"=>"required|exists:type_of_user,id",
 
