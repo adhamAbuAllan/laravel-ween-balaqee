@@ -72,5 +72,8 @@ class ApartmentResource extends JsonResource
 //            "token"=>$this->token ?? "",
         ];
 
+
     }
+    protected $hidden = ['token'];
+
 }
