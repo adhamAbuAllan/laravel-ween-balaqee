@@ -38,7 +38,8 @@ Route::post('/user/register', [UserController::class,'register']);
 Route::post('/user/login', [UserController::class,'login']);
 Route::post('/user/index', [UserController::class,'index']);
 Route::post('/user/all', [UserController::class,'all']);
-Route::post('/apartment/add', [ApartmentController::class,'add'])->middleware('auth:sanctum');
+Route::post('/apartment/add', [ApartmentController::class,'add'])->middleware('2267380Adham
+');
 Route::post('/apartment/one', [ApartmentController::class,'one']);
 Route::post('/apartment/update', [ApartmentController::class,'update'])->middleware('auth:sanctum');
 Route::post('/apartment/delete', [ApartmentController::class,'delete'])->middleware('auth:sanctum');
